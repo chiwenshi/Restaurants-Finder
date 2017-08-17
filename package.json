@@ -1,0 +1,24 @@
+{
+  "name": "webdev_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liang355/yingbin-liang-webdev-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liang355/yingbin-liang-webdev-project/issues"
+  },
+  "homepage": "https://github.com/liang355/yingbin-liang-webdev-project#readme"
+}
