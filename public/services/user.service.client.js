@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .factory("UserService", userService);
 
-    function userService($http) {
+    function userService($http, $sce) {
         var services = {
             "createUser": createUser,
             "findUserById": findUserById,
@@ -14,6 +14,8 @@
             "deleteUser": deleteUser
         };
         return services;
+
+
 
         function createUser(user) {
             var url = "/api/user";

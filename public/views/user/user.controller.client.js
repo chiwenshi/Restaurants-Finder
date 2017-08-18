@@ -111,12 +111,12 @@
 
     function HomeController($routeParams, $timeout, $location, UserService) {
         var vm = this;
-        vm.nearbySearch = nearbySearch;
+        vm.textSearch = textSearch;
         vm.uid = $routeParams.uid;
         vm.firstName = $routeParams.firstname;
 
-        function nearbySearch() {
-
+        function textSearch(text, location, radius) {
+            $location.url("/user/" + vm.uid + "/search?text="+text+"&location="+location+"&radius="+radius);
         }
     }
 

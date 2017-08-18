@@ -21,11 +21,21 @@
     <h1 style="margin-bottom: 20px">Find Nearby Restaurants</h1>
     <input type="text"
            class="form-control"
-           placeholder="address"
-           ng-model="model.address"
+           placeholder="food you are looking for, try typing 'pizza'!"
+           ng-model="model.text"
+           style="margin-bottom: 20px"/>
+    <input type="text"
+           class="form-control"
+           placeholder="your current latitude and longtitude, try typing '-33.8670,151.1957'!"
+           ng-model="model.location"
+           style="margin-bottom: 20px"/>
+    <input type="text"
+           class="form-control"
+           placeholder="the radius around the location you will use in search, try typing '2000'!"
+           ng-model="model.radius"
            style="margin-bottom: 20px"/>
     <a class="btn btn-primary btn-block"
-       ng-click="model.login(model.username, model.password)">Search</a>
+       ng-click="model.textSearch(model.text, model.location, model.radius)">Search</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

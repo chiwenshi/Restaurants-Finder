@@ -6,8 +6,8 @@ module.exports = function (mongoose) {
         _id: String,
         _user : {type : String, ref : 'userModel'},
         name : {type : String, required : true},
-        description : String,
-        latLong: String,
+        formatted_address : String,
+        rating: Number,
         dateCreated : {
             type : Date,
             default: Date.now

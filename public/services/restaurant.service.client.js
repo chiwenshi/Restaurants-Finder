@@ -3,16 +3,22 @@
         .module("WebAppMaker")
         .factory("RestaurantService", restaurantService);
 
-    function restaurantService($http) {
+    function restaurantService($http, $sce) {
         var services = {
             "createRestaurant": createRestaurant,
             "findRestaurantsByUser": findRestaurantsByUser,
             "findRestaurantById": findRestaurantById,
             "updateRestaurant": updateRestaurant,
             "deleteRestaurant": deleteRestaurant,
-            "deleteRestaurantsByUser": deleteRestaurantsByUser
+            "deleteRestaurantsByUser": deleteRestaurantsByUser,
+            "textSearch": textSearch
         };
         return services;
+
+        function textSearch(text, location, radius) {
+            var url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + text + "&location=" + location + "&radius=" + radius + "&type=restaurant&key=AIzaSyA7539UhyzSPVDEiz2JuaTic8UHNP2xsGk";
+            return $http.get($sce.trustAsUrl(url));
+        }
 
         function createRestaurant(userId, restaurant) {
             var url = "/api/user/"+userId+"/restaurant";

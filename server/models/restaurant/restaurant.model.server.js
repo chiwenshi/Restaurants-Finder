@@ -15,7 +15,6 @@ module.exports = function(mongoose, userModel) {
     return api;
 
     function createRestaurantForUser(userId, restaurant) {
-        restaurant._id = new Date().getTime().toString();
         restaurant._user = userId;
         return restaurantModel
             .create(restaurant)
