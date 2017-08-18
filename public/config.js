@@ -35,6 +35,16 @@
                 controller: "AdminController",
                 controllerAs: "model"
             })
+            .when('/user/:uid/restaurant', {
+                templateUrl : "views/restaurant/restaurant.view.client.html",
+                controller: "RestaurantController",
+                controllerAs: "model"
+            })
+            .when('/user/:uid/search', {
+                templateUrl : "views/restaurant/search.view.client.html",
+                controller: "SearchController",
+                controllerAs: "model"
+            })
 
             // .when('/user/:uid/website', {
             //     templateUrl : "views/website/website-list.view.client.html",

@@ -137,10 +137,9 @@
         function deleteUser(uid, username) {
             UserService.deleteUser(uid)
                 .then(function (response) {
-                    vm.updated = "user [" + username + "] was deleted";
-                    console.log(vm.updated);
+                    vm.deleted = "user [" + username + "] was deleted";
                     $timeout(function () {
-                        vm.updated = null;
+                        vm.deleted = null;
                     }, 3000);
                     findAllUser();
                 })

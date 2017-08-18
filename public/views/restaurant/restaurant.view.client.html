@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="col-xs-12">
+            <div class="navbar-header pull-left" style="margin-left: 15px">
+                <a class="navbar-brand" href="">
+                    My Favorite Restaurants
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
 
-</body>
-</html>
+<div class="row container-fluid">
+    <div class="col-xs-12 col-sm-12" id="websiteListArea">
+        <div ng-show="model.deleted" class="alert alert-success" role="alert">{{model.deleted}}</div>
+        <ul class="list-group">
+            <li ng-repeat="restaurant in model.restaurants" class="list-group-item">
+                <a>{{restaurant.name}}</a>
+                <a ng-click="model.deleteRestaurant(restaurant._id, restaurant.name)">
+                    <span class="glyphicon glyphicon-remove pull-right"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text row" id="bottom-navbar-row">
+            <div class="col-xs-12">
+                <a href="#!/user/{{model.uid}}" class="pull-right" id="bottom-user-icon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

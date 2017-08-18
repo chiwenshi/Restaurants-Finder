@@ -69,7 +69,7 @@ module.exports = function(app, models){
         var restaurantId = req.params.restaurantId;
         if(restaurantId){
             model
-                .deleterestaurant(restaurantId)
+                .deleteRestaurant(restaurantId)
                 .then(function (status){
                         res.sendStatus(200).send(status);
                     }, function (error){
