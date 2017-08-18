@@ -3,7 +3,9 @@
         .module("WebAppMaker")
         .controller("LoginController", LoginController)
         .controller("RegisterController", RegisterController)
-        .controller("ProfileController", ProfileController);
+        .controller("ProfileController", ProfileController)
+        .controller("HomeController", HomeController)
+        .controller("AdminController", AdminController);
 
     function LoginController($timeout, $location, UserService) {
         var vm = this;
@@ -15,8 +17,11 @@
                     var user = response.data;
                     if (user === null || user === undefined || user === "") {
                         vm.error = "No Such User";
+                    }
+                    else if (user.admin) {
+                        $location.url("/user/" + user._id + "/admin");
                     } else {
-                        $location.url("/user/" + user._id);
+                        $location.url("/user/" + user._id + "/home?firstname=" + user.firstName);
                     }
                 },function(error){
                     console.log(error);
@@ -101,6 +106,44 @@
                 }, function (error) {
                     console.log(error);
                 });
+        }
+    }
+
+    function HomeController($routeParams, $timeout, $location, UserService) {
+        var vm = this;
+        vm.nearbySearch = nearbySearch;
+        vm.uid = $routeParams.uid;
+        vm.firstName = $routeParams.firstname;
+
+        function nearbySearch() {
+
+        }
+    }
+
+    function AdminController($routeParams, $location, $timeout, UserService) {
+        var vm = this;
+        vm.deleteUser = deleteUser;
+        vm.uid = $routeParams.uid;
+
+        findAllUser();
+
+        function findAllUser() {
+            UserService.findAllUser()
+                .then(function (response) {
+                    vm.users = response.data;
+                });
+        }
+
+        function deleteUser(uid, username) {
+            UserService.deleteUser(uid)
+                .then(function (response) {
+                    vm.updated = "user [" + username + "] was deleted";
+                    console.log(vm.updated);
+                    $timeout(function () {
+                        vm.updated = null;
+                    }, 3000);
+                    findAllUser();
+                })
         }
     }
 })();

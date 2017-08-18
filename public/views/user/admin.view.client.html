@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="col-xs-12">
+            <div class="navbar-header pull-left" style="margin-left: 15px">
+                <a class="navbar-brand" href="">
+                    Manage Users
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="row container-fluid">
+    <div class="col-xs-12 col-sm-12" id="websiteListArea">
+        <div ng-show="model.updated" class="alert alert-success" role="alert">{{model.updated}}</div>
+        <ul class="list-group">
+            <li ng-repeat="user in model.users" class="list-group-item">
+                <a>{{user.username}}</a>
+                <a ng-click="model.deleteUser(user._id, user.username)">
+                    <span class="glyphicon glyphicon-remove pull-right"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text row" id="bottom-navbar-row">
+            <div class="col-xs-12">
+                <a href="#!/user/{{model.uid}}" class="pull-right" id="bottom-user-icon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
