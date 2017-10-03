@@ -1,5 +1,7 @@
 # yingbin-liang-webdev-project
 
+@Author: Yingbin Liang
+
 This is a simple app for searching restaurants vis Google Maps APIs and saving your favorite restaurants under your profile
 
 !!!! Please follow these steps in order to user the app !!!!
